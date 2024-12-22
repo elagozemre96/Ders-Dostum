@@ -19,7 +19,11 @@ export default function app() {
            
         3. Aynı kalıp sonraki tıklamalar için de tekrarlanmalıdır, böylece kullanıcı kartı istediği kadar ileri geri çevirmeye devam edebilir. 
 */
-
+const [flip, setFlipped] = useState(false)
+const handleCardClick=()=> {
+  setFlipped((prev) => !prev)
+  
+}
   return (
     <div>
       <header>
@@ -29,7 +33,7 @@ export default function app() {
 
       {/*-------Aşağıdaki div'i düzenleyin------------*/}
 
-      <div className='flash-card'>
+      <div onClick={handleCardClick} className={`flash-card ${flip ? 'flipped' : ''}`}>
         {/*-------Yukarıdaki div'i düzenleyin------------*/}
 
         <div className='flash-card-inner'>
